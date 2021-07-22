@@ -9,7 +9,7 @@ const Wrapper = styled.div`
     position:absolute;
     left: 0;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-30%);
     height: auto;
     width: auto;
     z-index: 10;
@@ -22,7 +22,7 @@ const Container = styled.div`
   width: 100%;
   align-items: center;
   border-radius: 2.3rem;
-  background: url('../images/bg-pattern-desktop.svg'), #f2f2f2;
+  background: url('../images/bg-pattern-desktop.svg'), #ffffff;
   background-position: -57.4rem 67%;
   background-repeat: no-repeat;
   overflow:hidden;
@@ -43,7 +43,7 @@ const FaqWrapper = styled.div`
       font-weight: bold;
       font-size: 3.2rem;
       line-height: 3.2rem;
-      margin-bottom: 4.3rem;
+      margin: 0 0 4.3rem;
 
       color: #1E1F36;
     }
@@ -98,10 +98,12 @@ function App() {
             <h1>FAQ</h1>
             <section className="questions">
               {faq.map( (q, i) => {
-                return (<Detail className="faq" key={i}>
-                  <summary className="question">{q.question}</summary>
-                  <p>{q.answer}</p>
-                </Detail>)
+                return (
+                  <Detail className="faq" key={i}>
+                    <summary className="question">{q.question}</summary>
+                    <p>{q.answer}</p>
+                  </Detail>
+                )
               })}
               
             </section>
