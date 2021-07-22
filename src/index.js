@@ -7,6 +7,12 @@ import { normalize } from 'styled-normalize';
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 50%;
+  }
   body {
     padding: 0;
     background: linear-gradient(180deg, #B068E9 0%, #6463E7 100%);
