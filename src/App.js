@@ -1,56 +1,100 @@
 import styled from 'styled-components';
 import {faq} from './data';
 
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  width: 920px;
-  height: 509px;
-  border-radius: 23px;
-  overflow: hidden;
-  background: url('../images/bg-pattern-desktop.svg'), #f2f2f2;
-  background-position: -574px 67%;
-  background-repeat: no-repeat;
-
-  img {
-    width: 472px;
-    height: 359px;
-    transform: translateX(-83px);
+const Wrapper = styled.div`
+  position: relative;
+  width: 92.0rem;
+  height: 50.9rem;
+  .box {
+    position:absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: auto;
+    width: auto;
+    z-index: 10;
   }
 `;
 
-const Detail = styled.details`
-  margin: 16px 0;
+const Container = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  border-radius: 2.3rem;
+  background: url('../images/bg-pattern-desktop.svg'), #f2f2f2;
+  background-position: -57.4rem 67%;
+  background-repeat: no-repeat;
+  overflow:hidden;
 
+  .illustration-desktop {
+    width: 47.2rem;
+    height: 35.9rem;
+    transform: translateX(-8.3rem);
+  }
+`;
+
+const FaqWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    padding: 8rem 12rem 10rem 0;
+
+    & h1 {
+      font-weight: bold;
+      font-size: 3.2rem;
+      line-height: 3.2rem;
+      margin-bottom: 4.3rem;
+
+      color: #1E1F36;
+    }
+`;
+
+const Detail = styled.details`
+  margin: 1.6rem 0;
+  border-bottom: 1px solid #E8E8EA;
+  
+  &[open]{
+    font-weight: bold;
+    & summary:after {
+      transform: rotate(180deg);
+    }
+    & p {
+      font-weight: normal;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin-bottom: 1.6rem;
+    }
+  }
+  
   
 
   & summary {
     position: relative;
     margin-bottom: 1.5rem;
-    padding-right: 4rem;
     outline: none;
     list-style: none;
     color: var(--color-very-dark-greyish-blue);
-    font-size: 1.625rem;
+    font-size: 1.4rem;
     cursor: pointer;
 
     &:after {
     content: url(./images/icon-arrow-down.svg);
     position: absolute;
-    right: 0;
+    right: 1rem;
     -webkit-transition: all .3s;
     transition: all .3s;
   }
-  }
+}
 `;
 
 function App() {
-  console.log(faq);
   return (
+    <Wrapper>
+      <img className="box" src="./images/illustration-box-desktop.svg" alt="" />
       <Container>
-          <img src="./images/illustration-woman-online-desktop.svg" alt="" />
-          <div className="faq-wrapper">
+          <img className="illustration-desktop" src="./images/illustration-woman-online-desktop.svg" alt="" />
+          
+          <FaqWrapper className="faq-wrapper">
             <h1>FAQ</h1>
             <section className="questions">
               {faq.map( (q, i) => {
@@ -61,8 +105,9 @@ function App() {
               })}
               
             </section>
-          </div>
+          </FaqWrapper>
       </Container>
+    </Wrapper>
   );
 }
 
